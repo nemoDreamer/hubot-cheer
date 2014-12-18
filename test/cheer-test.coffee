@@ -10,10 +10,10 @@ describe 'cheer', ->
       respond: sinon.spy()
       hear: sinon.spy()
 
-    require('../src/cheer')(@robot)
+    cheer = require('../src/cheer')(@robot)
 
   it 'registers a respond listener', ->
-    expect(@robot.respond).to.have.been.calledWith(/hello/)
+    expect(@robot.respond).to.have.been.calledWith(/cheer me up/i)
 
   it 'registers a hear listener', ->
-    expect(@robot.hear).to.have.been.calledWith(/orly/)
+    expect(@robot.hear).to.have.been.calledWith(/(i('m| (am|was))|(it|this|that)('s| (is|was|makes))).*(sad|depress(ed|ing)|emo|shame)/i)

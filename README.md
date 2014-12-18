@@ -19,6 +19,7 @@ Then add **hubot-cheer** to your `external-scripts.json`:
 ## Sample Interaction
 
 ```
-user1>> hubot hello
-hubot>> hello!
+user1>> It's a shame this had to happen...
+hubot>> That's too bad. Let me change that:
+        http://i.imgur.com/aovGkmq.jpg
 ```
