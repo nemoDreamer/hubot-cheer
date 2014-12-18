@@ -9,11 +9,11 @@
 
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-cheer.git"
+    "url": "git://github.com/nemoDreamer/hubot-cheer.git"
   },
 
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-cheer/issues"
+    "url": "https://github.com/nemoDreamer/hubot-cheer/issues"
   },
 
   "dependencies": {
