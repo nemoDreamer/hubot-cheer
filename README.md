@@ -2,8 +2,6 @@
 
 Feeling depressed?
 
-See [`src/cheer.coffee`](src/cheer.coffee) for full documentation.
-
 ## Installation
 
 In hubot project repo, run:

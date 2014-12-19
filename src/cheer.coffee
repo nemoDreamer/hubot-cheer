@@ -24,14 +24,28 @@ module.exports = (robot) ->
     "Oh really? Does this help?"
   ]
 
+  triggers = {
+    actions: [
+      /i('m| (am|was))/
+      /(it|th(is|at))('s|.*(is|was|ma(kes|de)))/
+    ]
+    words: [
+      /sad/
+      /depress(ed|ing)/
+      /\bemo/
+      /\bshame/
+    ]
+  }
+
+  trigger = new RegExp("(#{squash triggers.actions}).*(#{squash triggers.words})", 'i')
+
   robot.respond /cheer me up/i, (msg) ->
     aww msg
 
-  robot.hear /(i('m| (am|was))|(it|this|that)('s| (is|was|makes))).*(sad|depress(ed|ing)|emo|shame)/i, (msg) ->
-    msg.send msg.random comfort
-    aww msg
+  robot.hear trigger, (msg) ->
+    aww msg, true
 
-  aww = (msg) ->
+  aww = (msg, lead = false) ->
     msg
       .http('http://www.reddit.com/r/aww.json')
         .get() (err, res, body) ->
@@ -45,6 +59,10 @@ module.exports = (robot) ->
             parsed_url.pathname = parsed_url.pathname + ".jpg"
             raw_url = url.format(parsed_url)
 
+          msg.send msg.random comfort if lead
           msg.send raw_url
 
-  @yummy = 'yoyo'
+# Helpers
+
+squash = (array_of_regexps) ->
+  (regexp.toString()[1...-1] for regexp in array_of_regexps).join '|'
