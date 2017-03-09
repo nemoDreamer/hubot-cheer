@@ -47,7 +47,7 @@ module.exports = (robot) ->
 
   aww = (msg, lead = false) ->
     msg
-      .http('http://www.reddit.com/r/aww.json')
+      .http('https://www.reddit.com/r/aww.json')
         .get() (err, res, body) ->
           response = JSON.parse(body).data.children
           raw_url  = msg.random(response).data.url
